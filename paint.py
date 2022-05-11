@@ -4,6 +4,7 @@
 2. Dibujar un círculo
 3. Completar el rectángulo
 4. Completar el triángulo
+4/4
 """
 
 from turtle import *
@@ -44,11 +45,11 @@ def circles(start, end):
         forward(10)
         left(10)
 
-
+    end_fill()
     
     
 
-
+#rectangle (3)
 def rectangle(start, end):
     up()
     goto(start.x, start.y)
@@ -110,7 +111,7 @@ onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
-onkey(lambda: store('shape', circle), 'c')
+onkey(lambda: store('shape', circles), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
 done()
