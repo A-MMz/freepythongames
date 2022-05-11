@@ -5,6 +5,10 @@ Exercises
 1. Fantasmas más listos
 2. Cambiar el tablero
 3. Hacer que los fantasmas vayan mas rápido
+<<<<<<< HEAD
+=======
+test
+>>>>>>> f1fc68e3a145fa5423271bccd146ada1b6929a77
 """
 
 from random import choice
@@ -50,7 +54,7 @@ tiles = [
 
 
 def square(x, y):
-    """Draw square using path at (x, y)."""
+    """Draw square using path at (x, y). test"""
     path.up()
     path.goto(x, y)
     path.down()
