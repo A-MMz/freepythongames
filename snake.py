@@ -1,5 +1,10 @@
 #A01651150
-
+"""
+1. La comida podrá moverse al azar un paso a la vez y no deberá de salirse de la ventana
+2. Cada vez que se corra el juego, la víbora y la comida deberán tener colores diferentes entre sí, 
+pero al azar, de una serie de 5 diferentes colores, excepto el rojo.(2)
+1/2
+"""
 import random
 from random import randrange
 from turtle import *
@@ -10,7 +15,7 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
-#created array of colors to pick one at random and declare a global variable color at program startup
+#created array of colors to pick one at random and declare a global variable color at program startup(2)
 colors = ['blue', 'green', 'yellow', 'purple', 'orange']
 foodc = random.choice(colors)
 snakec = random.choice(colors)

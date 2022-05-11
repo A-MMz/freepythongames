@@ -2,6 +2,7 @@
 """
 1. La velocidad del movimiento para el proyectil y los balones sea más rápida
 2. Hacer que el juego nunca termine, de manera que los balones al salir de la ventana se re posicionen
+2/2
 """
 from random import randrange
 from turtle import *

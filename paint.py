@@ -1,4 +1,10 @@
 #A01651150
+"""
+1. Un color nuevo
+2. Dibujar un círculo
+3. Completar el rectángulo
+4. Completar el triángulo
+"""
 
 from turtle import *
 
@@ -29,18 +35,47 @@ def square(start, end):
 
 def circles(start, end):
     """Draw circle from start to end."""
-    t.circle(10)
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for count in range(36):
+        forward(10)
+        left(10)
+
+
+    
     
 
 
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
 
+    for count in range(2):
+        forward(start.x )
+        left(90)
+        forward(end.x )
+        left(90)
 
+    end_fill()
+
+#triangle (4)
 def triangle(start, end):
     """Draw triangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for count in range(3):
+        forward(end.x - start.x)
+        left(120)
+
+    end_fill()
 
 
 def tap(x, y):
@@ -66,6 +101,7 @@ setup(420, 420, 370, 0)
 onscreenclick(tap)
 listen()
 onkey(undo, 'u')
+#Un color nuevo (1)
 onkey(lambda: color('yellow'), 'Y')
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
