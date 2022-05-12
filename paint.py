@@ -35,12 +35,13 @@ def square(start, end):
 
 
 def circles(start, end):
-    """Draw circle from start to end."""
+    #Se dibuja el circulo de principio  a fin (2)
+    #Se pociona cursor en pos inicial
     up()
     goto(start.x, start.y)
     down()
     begin_fill()
-
+    # Se empiza a dibuja el circulo
     for count in range(36):
         forward(10)
         left(10)
@@ -49,13 +50,14 @@ def circles(start, end):
     
     
 
-#rectangle (3)
+#Se dibuja el rectangulo de principio a fin (3)
 def rectangle(start, end):
+     #Se pociona cursor en pos inicial
     up()
     goto(start.x, start.y)
     down()
     begin_fill()
-
+    # Se empiza a dibuja el rectangulo
     for count in range(2):
         forward(start.x )
         left(90)
@@ -64,14 +66,14 @@ def rectangle(start, end):
 
     end_fill()
 
-#triangle (4)
+# Se dibuja el triangulo de principio a fin (4)
 def triangle(start, end):
-    """Draw triangle from start to end."""
+     #Se pociona cursor en pos inicial
     up()
     goto(start.x, start.y)
     down()
     begin_fill()
-
+    # Se empiza a dibuja el triangulo
     for count in range(3):
         forward(end.x - start.x)
         left(120)
@@ -104,6 +106,7 @@ listen()
 onkey(undo, 'u')
 #Un color nuevo (1)
 onkey(lambda: color('yellow'), 'Y')
+#--------------------------------------
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')

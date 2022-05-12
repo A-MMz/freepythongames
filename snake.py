@@ -16,10 +16,11 @@ snake = [vector(10, 0)]
 aim = vector(0, -10)
 cont= 0
 
-#created array of colors to pick one at random and declare a global variable color at program startup(2)
+#Se creo un array de colores para escojer el color al inicio del juego(2)
 colors = ['blue', 'green', 'yellow', 'purple', 'orange']
 foodc = random.choice(colors)
 snakec = random.choice(colors)
+#Una condicion para impedir que los 2 colores sean iguales
 while snakec == foodc:
     snakec = random.choice(colors)
     

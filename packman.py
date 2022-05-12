@@ -129,7 +129,9 @@ def move():
     up()
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
-
+    
+    #Se hacen a los fantasmas "mas" inteligentes
+    #Cambian su direccion de acuerdo a la pos del pacman
     for point, course in ghosts:
         if valid(point + course):
             point.move(course)
@@ -139,6 +141,7 @@ def move():
                 if(pacman.x > point.x):
                     #el pacman esta arriba a la derecha
                     options = [
+                        #Aqui se puede cambiar las velocidad del fantasma
                         vector(10, 0),
                         vector(0, 10)
                     ]

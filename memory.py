@@ -8,6 +8,8 @@
 
 from random import *
 from turtle import *
+from emoji import emojize
+
 
 from freegames import path
 
@@ -72,7 +74,7 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        #align center (3)
+        #SE alinea el texto al centro (3)
         goto(x+25 , y)
         color('black')
         write(tiles[mark], True,font=('Arial', 30, 'normal'),align="center")
