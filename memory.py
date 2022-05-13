@@ -13,9 +13,15 @@ from emoji import emojize
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(2)) * 32
+# Se cambian los numeros por emojis para ayudar a la memoria
+emojis2=[u'\U0001F34C', u'\U0001F34D',]
+emojis=[u'\U0001F347', u'\U0001F348', u'\U0001F349', u'\U0001F34A', u'\U0001F34B', u'\U0001F34C', u'\U0001F34D', u'\U0001F34E', u'\U0001F34F', u'\U0001F350', u'\U0001F351',
+        u'\U0001F352', u'\U0001F353', u'\U0001F95D', u'\U0001F345', u'\U0001F965',u'\U0001F347', u'\U0001F348', u'\U0001F349', u'\U0001F34A', u'\U0001F34B', u'\U0001F34C', 
+        u'\U0001F34D', u'\U0001F34E', u'\U0001F34F', u'\U0001F350', u'\U0001F351', u'\U0001F352', u'\U0001F353', u'\U0001F95D', u'\U0001F345', u'\U0001F965']
+tiles = list(emojis2) * 32
 state = {'mark': None}
 hide = [True] * 64
+#Contador de taps y encontrados(1,2)
 taps=0
 founds = 0 
 
@@ -55,9 +61,11 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
-    #Se cuentan el numero de taps  (1)
+    
+    #Se aumenta en 1 el contador de taps
     taps +=1
 
+    #Se cuenta el nuemro de encontrados
     founds=0
     for a in hide:
         if a == False:
@@ -82,20 +90,21 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
+        #Se alinea texto al centro(3)
         goto(x + 25, y)
         color('black')
-        #Se alinea texto al centro
-        write(tiles[mark], font=('Arial', 25, 'normal'), align='center')
+        write(tiles[mark], font=('Arial', 30, 'normal'), align='center')
 
+    #Se determina el ganador
     if founds==4:
         up()
         goto(0, 0)
         color('green')
-        write('YOU WIN!!', font=('Arial', 25, 'normal'), align='center')
+        write('YOU WIN!!', font=('Arial', 30, 'normal'), align='center')
 
-    #Muestra el contador de taps (1)
+    #Contador de taps display(1)
     goto(-230,160)
-    color('black')
+    color("black")
     write(taps, font=('Arial', 30, 'normal'), align='center')
     
     update()
