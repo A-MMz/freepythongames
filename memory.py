@@ -10,15 +10,15 @@ from random import *
 from turtle import *
 from emoji import emojize
 
-
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+tiles = list(range(2)) * 32
 state = {'mark': None}
 hide = [True] * 64
-taps = 0
-taps = 0
+taps=0
+founds = 0 
+
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
     up()
@@ -45,17 +45,25 @@ def xy(count):
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     global taps
+    global founds 
     spot = index(x, y)
     mark = state['mark']
-    taps = taps +1
-    print(taps)
+
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
         state['mark'] = spot
     else:
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+    #Se cuentan el numero de taps  (1)
+    taps +=1
 
+    founds=0
+    for a in hide:
+        if a == False:
+          founds += 1
+
+   
 
 def draw():
     """Draw image and tiles."""
@@ -74,17 +82,28 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        #SE alinea el texto al centro (3)
-        goto(x+25 , y)
+        goto(x + 25, y)
         color('black')
-        write(tiles[mark], True,font=('Arial', 30, 'normal'),align="center")
+        #Se alinea texto al centro
+        write(tiles[mark], font=('Arial', 25, 'normal'), align='center')
 
+    if founds==4:
+        up()
+        goto(0, 0)
+        color('green')
+        write('YOU WIN!!', font=('Arial', 25, 'normal'), align='center')
+
+    #Muestra el contador de taps (1)
+    goto(-230,160)
+    color('black')
+    write(taps, font=('Arial', 30, 'normal'), align='center')
+    
     update()
     ontimer(draw, 100)
 
 
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(540, 420, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)

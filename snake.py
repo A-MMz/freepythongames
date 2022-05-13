@@ -57,7 +57,7 @@ def move():
 
     clear()
 
-
+    #se indica el color de la serpiente
     for body in snake:
         square(body.x, body.y, 9, snakec)
 
@@ -78,7 +78,7 @@ def move():
     if(food.y > 190): #Si se sale por abajo
       food.y -= 10 #Se mueve para arriba
 
-
+    #Se indica el color de la comida
     square(food.x, food.y, 9, foodc)
     update()
     ontimer(move, 100)
